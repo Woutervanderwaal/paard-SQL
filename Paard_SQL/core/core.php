@@ -23,7 +23,16 @@ function render($filename, $data = null)
 		}
 	} 
 
-	require(ROOT . 'view/templates/header.php');
-	require(ROOT . 'view/' . $filename . '.php');
-	require(ROOT . 'view/templates/footer.php');
+	if($filename == 'user/create' || $filename == 'user/logIn')
+	{
+		require(ROOT . 'view/' . $filename . '.php');
+	}
+
+	else
+	{
+		require(ROOT . 'view/templates/header.php');
+		require(ROOT . 'view/' . $filename . '.php');
+		require(ROOT . 'view/templates/footer.php');
+	}
+
 }
