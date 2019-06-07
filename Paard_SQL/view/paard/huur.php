@@ -20,9 +20,70 @@
                     <a class="h4" href="#">
                         <h6 style="margin-left: 20px;">Huur</h6>
                     </a>
+                    <a class="h4" onclick="areYouSure(<?php echo($paard['huurID']) ?>)" href="#">
+                        <h6 style="margin-left: 20px;">Delete</h6>
+                    </a>
                 </div>
                 <?php
                     }
                 ?>
             </div>
         </div>
+
+        <script>
+            function succes()
+            {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                ) 
+            }
+
+            function areYouSure(id)
+            {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.value) {
+                        //alert(id);
+                        $.ajax({
+                            type: "GET",
+                            url: "<?=URL?>paard/distroy/" + id,
+                            success: function(response){
+                                response = JSON.parse(response);
+                                if(response.success)
+                                {
+                                    Swal.fire(
+                                        'Deleted!',
+                                        'Your file has been deleted.',
+                                        'success'
+                                    ).then((result) => {
+                                        location.reload();
+                                    })
+                                }
+                            }
+                        });
+                    }
+                })
+            }
+
+            function fail()
+            {
+                Swal.fire({
+                    type: 'error',
+                    title: 'Oops...',
+                    text: 'Something went wrong!',
+                    footer: '<a href>Why do I have this issue?</a>'
+                })
+            }
+
+    </script>
+
+<!-- <a href=' URL paard/distroy/"+ id + "'>Yes, delete it!</a>-->

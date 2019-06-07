@@ -59,10 +59,6 @@ function createHorse($data)
 		$stmt->bindParam(":ras", $ras);
 
 		$stmt->execute();
-
-		$url = URL;
-
-		header("Location: $url paard/huur");
 	}
 
 	catch(PDOException $e){
@@ -70,6 +66,26 @@ function createHorse($data)
 	}
  
 	$conn = null;
+}
+
+
+function deleteHorse($id)
+{
+	try
+	{
+		$conn=openDatabaseConnection();
+
+		$stmt = $conn->prepare("DELETE FROM `huur` WHERE huurID = :id");
+		$stmt->bindParam(":id", $id);
+		$stmt->execute();
+	}
+	
+	catch(PDOException $e){
+		echo "Connection failed: " . $e->getMessage();
+		return false;
+	}
  
-	return $result;
+	$conn = null;
+	return true;
+
 }

@@ -10,6 +10,11 @@ function create()
     render('user/create');
 }
 
+function change()
+{
+    render('user/change');
+}
+
 function store()
 {
     $acount = array(

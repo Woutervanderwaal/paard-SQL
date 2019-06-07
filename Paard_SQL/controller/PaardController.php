@@ -25,4 +25,25 @@ function store()
     );
 
     createHorse($paard);
+
+    header("Location: " . URL . "paard/huur");
 }
+
+function distroy($id)
+{
+    $succesful = deleteHorse($id);
+    $message = '';
+
+    if($succesful)
+    {
+        $message = "Succesvol verwijderd";
+    }
+    else{
+        $message = "Oeps, foutje";
+    }
+    echo json_encode([
+        "success" => $succesful,
+        "message" => $message
+    ]);
+}
+

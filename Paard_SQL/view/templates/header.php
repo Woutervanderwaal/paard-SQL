@@ -29,6 +29,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 </head>
 
+<!DOCTYPE html>
+<html>
+
+<body>
+    
 <div>
     <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
         <div class="container"><a class="navbar-brand" href="<?=URL?>home/index">Paard Huur</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -38,13 +43,9 @@
                     <li class="nav-item" role="presentation"></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="<?=URL?>paard/huur">Paarden</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="<?=URL?>home/update">Update</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?=URL?>home/user">Users</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="<?=URL?>user/change">Users</a></li>
                 </ul><span class="navbar-text actions"> <a class="login" href="<?=URL?>user/logIn">Log In</a><a class="btn btn-light action-button" role="button" href="<?=URL?>user/create">Sign Up</a></span></div>
         </div>
     </nav>
 </div>
 
-<!DOCTYPE html>
-<html>
-
-<body>
